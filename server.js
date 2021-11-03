@@ -15,14 +15,22 @@ app.get("/hi", (req, res) => {
 });
 
 app.post("/precioFrutas", (req, res) => {
-    let precio = 0;
+    let pFruta = 0;
+    let pVerdura = 0;
     let json = req.body;
+
     for (let x in json) {
         if (json[x].tipo == "fruta") {
-            precio += parseInt(json[x].precio);
+            pFruta += parseInt(json[x].precio);
+        } else {
+            pVerdura += parseInt(json[x].precio);
         }
     }
-    res.send(`El valor total de las frutas es ${precio}`);
+    res.send(
+        `El valor total de las frutas es ${pFruta} y el de las verduras es ${pVerdura}, el total de la compra es ${
+            pVerdura + pFruta
+        }`
+    );
 });
 
 app.post("/determinante", (req, res) => {
@@ -36,7 +44,7 @@ JSON:
 {
     "manzana": {"tipo":"fruta","precio":"2"},
     "banana": {"tipo":"fruta","precio":"3"},
-    "zanahoria": {"tipo":"fruta","precio":"2"}
+    "zanahoria": {"tipo":"verdura","precio":"2"}
 }
 
 Matriz 2x2:
