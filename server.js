@@ -17,10 +17,9 @@ app.get("/hi", (req, res) => {
 app.post("/precioFrutas", (req, res) => {
     let precio = 0;
     let json = req.body;
-
-    for (x in json) {
-        if (json.x.tipo == "fruta") {
-            precio += json.x.precio;
+    for (let x in json) {
+        if (json[x].tipo == "fruta") {
+            precio += parseInt(json[x].precio);
         }
     }
     res.send(`El valor total de las frutas es ${precio}`);
