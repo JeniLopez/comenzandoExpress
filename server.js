@@ -30,3 +30,18 @@ app.post("/determinante", (req, res) => {
         req.body[0][0] * req.body[1][1] - req.body[1][0] * req.body[0][1];
     res.send(`El determinante es ${determinante}`);
 });
+
+/*
+JSON:
+{
+    "manzana": {"tipo":"fruta","precio":"2"},
+    "banana": {"tipo":"fruta","precio":"3"},
+    "zanahoria": {"tipo":"fruta","precio":"2"}
+}
+
+Matriz 2x2:
+[
+    [1, 2],
+    [3, 4]
+]
+*/
